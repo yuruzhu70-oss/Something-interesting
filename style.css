@@ -1,0 +1,647 @@
+:root {
+  --ink: #312a29;
+  --muted: #928781;
+  --cream: #fff9f5;
+  --pink: #f7dbd6;
+  --red: #d85a56;
+  --line: #eee4dd;
+  --green: #5c8278;
+}
+
+/* 基础重置 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f3eee9;
+  color: var(--ink);
+  font-family: "DM Sans", "Noto Sans SC", sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+/* 容器与页面布局 */
+.app-shell {
+  min-height: 100dvh;
+  max-width: 520px;
+  margin: auto;
+  padding: 15px 20px 100px;
+  background: var(--cream);
+}
+
+.page {
+  display: none;
+}
+
+.page.is-active {
+  display: block;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.role-page {
+  padding: 13vh 5px 0;
+}
+
+/* 排版与品牌标示 */
+.logo {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--pink);
+  font-size: 26px;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 7px;
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 35px;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+  margin-bottom: 10px;
+}
+
+h1 em {
+  font-family: Georgia, serif;
+  color: var(--red);
+  font-weight: 400;
+}
+
+.sub,
+.intro > p:last-child {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.intro {
+  padding: 35px 3px 22px;
+}
+
+.heading {
+  padding: 2px 1px 14px;
+}
+
+.heading h2 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.heading h2 span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.brand span {
+  padding: 6px;
+  background: var(--pink);
+  border-radius: 10px;
+  margin-right: 6px;
+}
+
+/* 角色选择卡片 */
+.role-options {
+  display: grid;
+  gap: 13px;
+  margin-top: 35px;
+}
+
+.role-card {
+  position: relative;
+  min-height: 110px;
+  padding: 18px 44px 18px 65px;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+}
+
+.role-card > span {
+  position: absolute;
+  left: 17px;
+  top: 22px;
+  font-size: 27px;
+}
+
+.role-card b,
+.role-card small {
+  display: block;
+}
+
+.role-card b {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.role-card small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.role-card i {
+  position: absolute;
+  right: 18px;
+  top: 38px;
+  font-style: normal;
+  font-size: 22px;
+}
+
+.role-card.friend {
+  background: #f5eee7;
+}
+
+/* 头部与表单控件 */
+.workspace header {
+  height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch-role {
+  background: none;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.search {
+  height: 45px;
+  padding: 0 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.search span {
+  font-size: 22px;
+  color: var(--muted);
+}
+
+.search input {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 11px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fffdfa;
+  outline-color: var(--red);
+  font-size: 12px;
+}
+
+label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+label span {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.primary {
+  width: 100%;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 卡片与网格列表 */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin-top: 17px;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 2px 0 #e8ddd6;
+}
+
+.card > div:last-child {
+  padding: 11px;
+}
+
+.card h3 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 10px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.photo {
+  height: 126px;
+  background: center / cover;
+  position: relative;
+}
+
+.photo button {
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffffffe6;
+  color: var(--red);
+  font-size: 18px;
+}
+
+.form-card {
+  padding: 17px 15px 15px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-around;
+  padding: 13px;
+  margin-bottom: 18px;
+  border-radius: 15px;
+  background: #f5ebe4;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.summary b {
+  color: var(--red);
+  font-size: 16px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cooked,
+.wish {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: #fff;
+}
+
+.cooked img {
+  width: 105px;
+  height: 150px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.cooked small,
+.wish small {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.cooked h3 {
+  margin: 4px 0 9px;
+  font-size: 17px;
+}
+
+.cooked p {
+  margin: 5px 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.cooked p b {
+  color: #bc8276;
+  margin-right: 5px;
+}
+
+.wish h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.wish p {
+  margin: 1px 0 5px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.wish p b {
+  color: var(--ink);
+}
+
+.wish a {
+  font-size: 10px;
+  color: #b65c56;
+}
+
+/* 组件与状态标签 */
+.actions {
+  display: flex;
+  gap: 5px;
+  margin-top: 9px;
+}
+
+.actions a,
+.actions button,
+.status {
+  padding: 5px 6px;
+  border-radius: 8px;
+  background: #fff2ef;
+  color: #b65c56;
+  font-size: 10px;
+  text-decoration: none;
+}
+
+.actions button {
+  background: #f4eee8;
+}
+
+.status {
+  position: absolute;
+  right: 11px;
+  bottom: 10px;
+}
+
+.status.done {
+  background: #e5f1eb;
+  color: #4c7b6d;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-size: 12px;
+}
+
+.supporters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0 0 8px;
+}
+
+.supporters span {
+  padding: 3px 6px;
+  border-radius: 8px;
+  background: #f4eee8;
+  color: #897a73;
+  font-size: 10px;
+}
+
+.friend-entry {
+  display: block;
+  margin: 24px 0 -22px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.friend-entry input {
+  margin-top: 7px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.empty {
+  padding: 25px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* 导航与浮动控件 */
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(520px, 100%);
+  height: 77px;
+  display: flex;
+  background: #fffdfb;
+  border-top: 1px solid var(--line);
+}
+
+nav button {
+  flex: 1;
+  background: none;
+  color: var(--muted);
+  font-size: 19px;
+}
+
+nav button small {
+  display: block;
+  font-size: 10px;
+}
+
+nav button.active {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.add {
+  position: fixed;
+  bottom: 56px;
+  left: calc(50% + min(260px, 50vw) - 68px);
+  width: 51px;
+  height: 51px;
+  display: none;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-size: 27px;
+  box-shadow: 0 7px 15px #c04e4a61;
+}
+
+/* 弹窗与提示 */
+dialog {
+  width: min(360px, calc(100vw - 36px));
+  border: 0;
+  border-radius: 21px;
+  padding: 28px 22px 22px;
+}
+
+dialog::backdrop {
+  background: #281b1b66;
+}
+
+dialog h2 {
+  font-size: 22px;
+}
+
+.close {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  background: none;
+  font-size: 25px;
+  color: var(--muted);
+}
+
+.toast {
+  position: fixed;
+  z-index: 10;
+  bottom: 91px;
+  left: 50%;
+  transform: translate(-50%, 15px);
+  opacity: 0;
+  padding: 10px 15px;
+  border-radius: 22px;
+  background: #2c2928;
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* 桌面端适配 */
+@media (min-width: 600px) {
+  body {
+    padding: 18px;
+  }
+
+  .app-shell {
+    min-height: calc(100dvh - 36px);
+    border-radius: 28px;
+    box-shadow: 0 12px 38px #563e3226;
+  }
+
+  nav {
+    bottom: 18px;
+    border-radius: 0 0 28px 28px;
+  }
+
+  .add {
+    bottom: 73px;
+    left: calc(50% + min(260px, 50vw - 18px) - 68px);
+  }
+}
+/* 强行让加号按钮一直显示 */
+.add.show, .add {
+  display: grid !important;
+}
+
+/* 强制修复加号按钮位置与显示 */
+.add {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 90px !important; /* 刚好悬浮在底部导航栏上方 */
+  left: auto !important;   /* 覆盖掉原 CSS 里复杂的 calc 计算 */
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  background: var(--red) !important;
+  color: #fff !important;
+  font-size: 28px !important;
+  line-height: 1 !important;
+  box-shadow: 0 6px 16px rgba(216, 90, 86, 0.4) !important;
+  z-index: 99 !important;  /* 确保放在最顶层 */
+}
+
+/* 适配大屏桌面端，让它居中靠右在容器内 */
+@media (min-width: 600px) {
+  .add {
+    right: calc(50vw - 240px) !important;
+    bottom: 105px !important;
+  }
+}
+
+/* 切换子选项卡 */
+.sub-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 18px;
+  padding: 4px;
+  background: #f0e7e1;
+  border-radius: 12px;
+}
+
+.sub-tab {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.sub-tab.active {
+  background: #fff;
+  color: var(--red);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}

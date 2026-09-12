@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>小猪菜单 - 朋友端</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="workspace page is-active" id="workspacePage">
+      <header>
+        <div class="brand"><span>🐷</span><b>小猪菜单</b></div>
+      </header>
+
+      <!-- 1. 看看页（默认激活）：展示小猪做过的菜，根据数据库/JS 动态更新 -->
+      <section id="friendFeed" class="view active">
+        <div class="intro">
+          <p class="eyebrow">PIGGY MADE THIS</p>
+          <h1>小猪最近<br><em>做了&想做什么？</em></h1>
+        </div>
+        <!--分类切换按钮-->
+        <div class="sub-tabs">
+            <button class="sub-tab active" data-type="plans">📅 准备做 (<span id="plansCount">0</span>)</button>
+            <button class="sub-tab" data-type="cooked">🍳 做过了 (<span id="cookedCount">0</span>)</button>
+        </div>
+        <!-- 内容列表容器 -->
+         <div id="friendFeedList" class="list"></div>
+      </section>
+
+      <!-- 2. 许愿页：朋友给小猪点菜 -->
+      <section id="friendWish" class="view">
+        <div class="intro">
+          <p class="eyebrow">MAKE A WISH</p>
+          <h1>想让小猪<br><em>试试什么？</em></h1>
+        </div>
+        <form class="form-card" id="wishForm">
+          <label>菜名<input required name="dish" placeholder="例如：泰式绿咖喱鸡"></label>
+          <label>小红书灵感链接 <span>可选</span><input name="link" type="url" placeholder="粘贴帖子链接"></label>
+          <button class="primary">把愿望交给小猪</button>
+        </form>
+        <div class="heading">
+          <h2>我的愿望</h2>
+        </div>
+        <div id="friendWishList" class="list"></div>
+      </section>
+
+      <!-- 底部导航栏：极简双选项卡 -->
+      <nav id="nav">
+        <button class="active" data-target="friendFeed">🍽️<small>看看</small></button>
+        <button data-target="friendWish">✨<small>许愿</small></button>
+      </nav>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
