@@ -1,0 +1,360 @@
+/* 排版与标示 */
+.eyebrow {
+  margin: 0 0 7px;
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+h1 {
+  font-size: 35px;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+  margin-bottom: 10px;
+}
+
+h1 em {
+  font-family: Georgia, serif;
+  color: var(--red);
+  font-weight: 400;
+}
+
+.intro {
+  padding: 35px 3px 22px;
+}
+
+.heading {
+  padding: 2px 1px 14px;
+}
+
+.heading h2 {
+  margin: 0;
+  font-size: 21px;
+}
+
+/* 列表与卡片 */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cooked,
+.wish {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: #fff;
+  align-items: flex-start;
+}
+
+.cooked img {
+  width: 105px;
+  height: 150px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.cooked small,
+.wish small {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.cooked h3 {
+  margin: 4px 0 9px;
+  font-size: 17px;
+}
+
+.cooked p {
+  margin: 5px 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.wish h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.wish p {
+  margin: 1px 0 5px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.wish p b {
+  color: var(--ink);
+}
+
+.wish a {
+  font-size: 10px;
+  color: #b65c56;
+  text-decoration: none;
+}
+
+/* 愿望卡片头像与支持者列表 */
+.avatar {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-size: 12px;
+}
+
+.supporters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 4px 0 8px;
+}
+
+.supporters span {
+  padding: 3px 6px;
+  border-radius: 8px;
+  background: #f4eee8;
+  color: #897a73;
+  font-size: 10px;
+}
+
+/* 愿望 +1 专属按钮（按原作者 actions 按钮风格设计） */
+.wish-action {
+  margin-left: auto;
+  align-self: center;
+}
+
+.btn-plus-one {
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: #fff2ef;
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.btn-plus-one:active {
+  background: var(--red);
+  color: #fff;
+}
+
+/* ====================
+   表单与按钮补充样式
+   ==================== */
+
+/* 表单外层白色卡片 */
+.form-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  margin-bottom: 24px;
+}
+
+/* Label 标签（换行居上） */
+.form-card label {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.form-card label span {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 11px;
+  margin-left: 4px;
+}
+
+/* 输入框统一排版 */
+.form-card input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fffdfa;
+  outline-color: var(--red);
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.form-card input::placeholder {
+  color: #c4b8b2;
+}
+
+/* 主提交按钮（深色高亮） */
+.primary {
+  display: block;
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.primary:active {
+  background: var(--red);
+}
+
+/* 卡片容器：确保图片不会溢出卡片边框 */
+.card, .idea-item, .dish-item {
+  position: relative;
+  overflow: hidden; /* 裁剪超出卡片的内容 */
+  border-radius: 12px; /* 根据你的卡片圆角调整 */
+}
+
+/* 渲染在卡片内的图片：强制宽度 100% 适应父容器 */
+.card img, .idea-item img, .dish-item img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 220px; /* 限制图片最大高度，防止大图撑得太长 */
+  object-fit: cover; /* 保持比例裁剪充填 */
+  display: block;
+  border-radius: 8px; /* 内部图片的圆角 */
+  margin-bottom: 10px;
+}
+
+.timeline-card { overflow: hidden; }
+.timeline-card img, article.cooked img {
+  width: 100%;
+  max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* 单行日历卡片布局 */
+.timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timeline-date {
+  min-width: 48px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-date .day {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.timeline-date .month {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.timeline-card-compact {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.timeline-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.timeline-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.timeline-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timeline-header h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timeline-header .tag {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #f4eee8;
+  color: #897a73;
+  white-space: nowrap;
+}
+
+.ref-link {
+  font-size: 11px;
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 500;
+  width: fit-content;
+}
+
+.ref-link:hover {
+  text-decoration: underline;
+}
+
+.timeline-actions button {
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: var(--cream);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}

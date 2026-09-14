@@ -1,0 +1,176 @@
+:root {
+  --ink: #312a29;
+  --muted: #928781;
+  --cream: #fff9f5;
+  --pink: #f7dbd6;
+  --red: #d85a56;
+  --line: #eee4dd;
+  --green: #5c8278;
+}
+
+/* 基础重置 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f3eee9;
+  color: var(--ink);
+  font-family: "DM Sans", "Noto Sans SC", sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+/* 容器与页面布局 */
+.app-shell {
+  min-height: 100dvh;
+  max-width: 520px;
+  margin: auto;
+  padding: 15px 20px 100px;
+  background: var(--cream);
+}
+
+.page {
+  display: none;
+}
+
+.page.is-active {
+  display: block;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.workspace header {
+  height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand span {
+  padding: 6px;
+  background: var(--pink);
+  border-radius: 10px;
+  margin-right: 6px;
+}
+
+/* 子选项卡 */
+.sub-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 18px;
+  padding: 4px;
+  background: #f0e7e1;
+  border-radius: 12px;
+}
+
+.sub-tab {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.sub-tab.active {
+  background: #fff;
+  color: var(--red);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* 导航与浮动控件 */
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(520px, 100%);
+  height: 77px;
+  display: flex;
+  background: #fffdfb;
+  border-top: 1px solid var(--line);
+  z-index: 100;
+}
+
+nav button {
+  flex: 1;
+  background: none;
+  color: var(--muted);
+  font-size: 19px;
+}
+
+nav button small {
+  display: block;
+  font-size: 10px;
+}
+
+nav button.active {
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* 弹窗与提示 */
+.toast {
+  position: fixed;
+  z-index: 1000;
+  bottom: 91px;
+  left: 50%;
+  transform: translate(-50%, 15px);
+  opacity: 0;
+  padding: 10px 15px;
+  border-radius: 22px;
+  background: #2c2928;
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.empty {
+  padding: 25px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* 桌面端适配 */
+@media (min-width: 600px) {
+  body {
+    padding: 18px;
+  }
+
+  .app-shell {
+    min-height: calc(100dvh - 36px);
+    border-radius: 28px;
+    box-shadow: 0 12px 38px #563e3226;
+  }
+
+  nav {
+    bottom: 18px;
+    border-radius: 0 0 28px 28px;
+  }
+}

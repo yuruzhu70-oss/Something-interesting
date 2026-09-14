@@ -136,7 +136,7 @@ function wishGroups() {
   return [...groups.values()];
 }
 
-// 渲染许愿池列表
+// 渲染许愿池列表（包含 +1 按钮）
 function renderWishes() {
   const container = $('#friendWishList');
   if (!container) return;
@@ -152,11 +152,14 @@ function renderWishes() {
     return `
       <article class="wish">
         <div class="avatar">${escapeHtml(x.supports[0]?.alias?.[0] || '朋')}</div>
-        <div>
+        <div class="wish-content">
           <p><b>${x.supports.length} 位朋友</b> 想让小猪试试</p>
           <h3>${escapeHtml(x.dish)}</h3>
           <div class="supporters">${people}</div>
           ${x.link ? `<a target="_blank" href="${escapeHtml(x.link)}">↗ 查看灵感链接</a>` : '<small>未附链接</small>'}
+        </div>
+        <div class="wish-action">
+          <button class="btn-plus-one" onclick="supportWish('${x.id}')">+1 🙌</button>
         </div>
       </article>
     `;

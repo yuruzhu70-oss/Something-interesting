@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>小猪菜单 - 管理后台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="workspace page is-active">
+      <header>
+        <div class="brand"><span>👑</span><b>小猪主厨后台</b></div>
+      </header>
+
+      <!-- 1. 做饭计划管理 -->
+      <section id="adminPlans" class="view active">
+        <div class="intro">
+          <p class="eyebrow">PLANNING</p>
+          <h1>制定下厨<br><em>新计划</em></h1>
+        </div>
+
+        <form class="form-card" id="planForm">
+          <label>菜品名称<input required name="name" placeholder="例如：日式咖喱猪扒饭"></label>
+          <label>分类<input name="category" placeholder="例如：主食 / 晚餐"></label>
+          <label>计划日期<input type="date" name="planned_date" required></label>
+          <label>图片 URL <span>可选</span><input name="image_url" type="url" placeholder="图片网络链接"></label>
+          <button class="primary" type="submit">发布计划</button>
+        </form>
+
+        <div class="heading"><h2>已有计划</h2></div>
+        <div id="adminPlanList" class="list"></div>
+      </section>
+
+      <!-- 2. 下厨记录管理 -->
+      <section id="adminCooked" class="view">
+        <div class="intro">
+          <p class="eyebrow">COOKED DISHES</p>
+          <h1>记录一道<br><em>刚做完的菜</em></h1>
+        </div>
+
+        <form class="form-card" id="cookedForm">
+          <label>菜名<input required name="name" placeholder="例如：红烧肉"></label>
+          <label>口感味道<input name="taste" placeholder="例如：咸甜适中，软烂入味"></label>
+          <label>改进心得<textarea name="improvement" placeholder="例如：下次糖可以少放一点，收汁再久点"></textarea></label>
+          <label>图片 URL <span>可选</span><input name="image_url" type="url" placeholder="成品照片链接"></label>
+          <button class="primary" type="submit">存入下厨档案</button>
+        </form>
+
+        <div class="heading"><h2>做过记录</h2></div>
+        <div id="adminCookedList" class="list"></div>
+      </section>
+
+      <!-- 3. 朋友许愿池处理 -->
+      <section id="adminWishes" class="view">
+        <div class="intro">
+          <p class="eyebrow">WISH LIST</p>
+          <h1>朋友们的<br><em>点菜心愿</em></h1>
+        </div>
+        <div id="adminWishList" class="list"></div>
+      </section>
+
+      <!-- 底部导航 -->
+      <nav id="nav">
+        <button class="active" data-target="adminPlans">📅<small>计划</small></button>
+        <button data-target="adminCooked">🍳<small>已做</small></button>
+        <button data-target="adminWishes">✨<small>许愿池</small></button>
+      </nav>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- JS 依赖加载 -->
+  <script src="js/supabase.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
